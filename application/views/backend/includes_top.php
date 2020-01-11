@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="<?php echo base_url('assets/css/neon-theme.css');?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/css/neon-forms.css');?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/css/custom.css');?>">
+
 <?php
     $skin_colour = $this->db->get_where('settings' , array(
         'type' => 'skin_colour'

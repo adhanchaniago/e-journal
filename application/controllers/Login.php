@@ -64,6 +64,13 @@ class Login extends CI_Controller {
           $this->session->set_userdata('login_user_id', $row->admin_id);
           $this->session->set_userdata('name', $row->name);
           $this->session->set_userdata('login_type', 'admin');
+
+          $data['session'] = 'admin';
+        $data['user_id'] = $row->admin_id;
+        $data['at'] = 'portal';
+        $data['status'] = 'Online';
+        $this->db->insert('online',$data);
+
           redirect(site_url('admin/dashboard'), 'refresh');
       }
 
@@ -77,9 +84,11 @@ class Login extends CI_Controller {
           $this->session->set_userdata('name', $row->name);
           $this->session->set_userdata('login_type', 'teacher');
 
-          $data['status'] = '1';
-          $this->db->where('teacher_id', $row->teacher_id);
-          $this->db->update('teacher',$data);
+          $data['session'] = 'teacher';
+          $data['user_id'] = $row->teacher_id;
+          $data['at'] = 'e-journal';
+          $data['status'] = 'Online';
+          $this->db->insert('online',$data);
           redirect(site_url('teacher/dashboard'), 'refresh');
       }
 
@@ -96,9 +105,8 @@ class Login extends CI_Controller {
     /*     * *****LOGOUT FUNCTION ****** */
 
     function logout() {
-        $data['status'] = '0';
-        $this->db->where('teacher_id', $this->session->userdata('teacher_id'));
-        $this->db->update('teacher',$data);
+            $this->db->where(array('user_id' => $this->session->userdata('login_user_id'), 'at' => 'e-journal'));
+            $this->db->delete('online');
         
         $this->session->sess_destroy();
         $this->session->set_flashdata('logout_notification', 'logged_out');

@@ -170,6 +170,11 @@ class Teacher extends CI_Controller
         $page_data['page_name']  = 'my_file';
         $page_data['page_title'] = get_phrase('my_file');
         $page_data['teaching_planning']  = $this->db->get_where('teaching_planning', array('teacher_id' => $teacher_id))->result_array();
+        $page_data['prota']  = $this->db->get_where('prota', array('id_teacher' => $teacher_id))->result_array();
+        $page_data['promes']  = $this->db->get_where('promes', array('id_teacher' => $teacher_id))->result_array();
+        $page_data['rpp']  = $this->db->get_where('rpp', array('id_teacher' => $teacher_id))->result_array();
+        $page_data['silabus']  = $this->db->get_where('silabus', array('id_teacher' => $teacher_id))->result_array();
+        $page_data['kikd']  = $this->db->get_where('kikd', array('id_teacher' => $teacher_id))->result_array();
         $page_data['study_material_info']    = $this->crud_model->select_study_material_info_for_teacher();
         $this->load->view('backend/index', $page_data);
     }

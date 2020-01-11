@@ -41,7 +41,7 @@
         <div class="tab-content">
             <br>
 
-            <div class="tab-pane box" id="study">
+            <div class="tab-pane box active" id="study">
                 <div class="box-content">
                 <table class="table table-bordered" id="table_export">
                     <thead>
@@ -89,7 +89,7 @@
                 </div>
             </div>
             
-            <div class="tab-pane box active" id="prota">
+            <div class="tab-pane box" id="prota">
                 <div class="row">
 
                     <div class="col-md-12">
@@ -98,22 +98,20 @@
                                 <tr>
                                     <th width="40"><div><?php echo get_phrase('#');?></div></th>
                                     <th><div><?php echo get_phrase('subject');?></div></th>
-                                    <th><div><?php echo get_phrase('class');?></div></th>
-                                    <th><div><?php echo get_phrase('section');?></div></th>
+                                    <th><div><?php echo get_phrase('class');?></div></th>                                    
                                     <th><div><?php echo get_phrase('file');?></div></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php 
                                 $no = 1;
-                                foreach ($teaching_planning as $j):
+                                foreach ($prota as $j):
                                 ?>
                                 <tr>
                                     <td><?=$no++;?></td>
-                                    <td><?=$this->db->get_where('subject',array('subject_id' => $j['subject_id']))->row()->name;?></td>
-                                    <td><?=$this->db->get_where('class',array('class_id' => $j['class_id']))->row()->name;?></td>
-                                    <td><?=$this->db->get_where('section',array('section_id' => $j['section_id']))->row()->name;?></td>
-                                    <td><?=$j['prota'];?>
+                                    <td><?=$this->db->get_where('subject',array('subject_id' => $j['section']))->row()->name;?></td>
+                                    <td><?=$this->db->get_where('class',array('class_id' => $j['class']))->row()->name;?></td>
+                                    <td><?=$j['file'];?>
                                     <!-- <a href="<?=site_url('teacher/journal_view/'.$j['subject_id']);?>" class="btn btn-primary">
                                         <i class="entypo-plus-circled"></i>
                                         <?php echo get_phrase('view_journal');?>
@@ -137,22 +135,20 @@
                             <tr>
                                 <th width="40"><div><?php echo get_phrase('#');?></div></th>
                                 <th><div><?php echo get_phrase('subject');?></div></th>
-                                <th><div><?php echo get_phrase('class');?></div></th>
-                                <th><div><?php echo get_phrase('section');?></div></th>
+                                <th><div><?php echo get_phrase('class');?></div></th>                                
                                 <th><div><?php echo get_phrase('file');?></div></th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php 
                             $no = 1;
-                            foreach ($teaching_planning as $j):
+                            foreach ($prosem as $j):
                             ?>
                             <tr>
                                 <td><?=$no++;?></td>
-                                <td><?=$this->db->get_where('subject',array('subject_id' => $j['subject_id']))->row()->name;?></td>
-                                <td><?=$this->db->get_where('class',array('class_id' => $j['class_id']))->row()->name;?></td>
-                                <td><?=$this->db->get_where('section',array('section_id' => $j['section_id']))->row()->name;?></td>
-                                <td><?=$j['prosem'];?>
+                                <td><?=$this->db->get_where('subject',array('subject_id' => $j['section']))->row()->name;?></td>
+                                <td><?=$this->db->get_where('class',array('class_id' => $j['class']))->row()->name;?></td>
+                                <td><?=$j['file'];?>
                                 <!-- <a href="<?=site_url('teacher/journal_view/'.$j['subject_id']);?>" class="btn btn-primary">
                                     <i class="entypo-plus-circled"></i>
                                     <?php echo get_phrase('view_journal');?>
@@ -172,22 +168,20 @@
                             <tr>
                                 <th width="40"><div><?php echo get_phrase('#');?></div></th>
                                 <th><div><?php echo get_phrase('subject');?></div></th>
-                                <th><div><?php echo get_phrase('class');?></div></th>
-                                <th><div><?php echo get_phrase('section');?></div></th>
+                                <th><div><?php echo get_phrase('class');?></div></th>                                
                                 <th><div><?php echo get_phrase('file');?></div></th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php 
                             $no = 1;
-                            foreach ($teaching_planning as $j):
+                            foreach ($silabus as $j):
                             ?>
                             <tr>
                                 <td><?=$no++;?></td>
-                                <td><?=$this->db->get_where('subject',array('subject_id' => $j['subject_id']))->row()->name;?></td>
-                                <td><?=$this->db->get_where('class',array('class_id' => $j['class_id']))->row()->name;?></td>
-                                <td><?=$this->db->get_where('section',array('section_id' => $j['section_id']))->row()->name;?></td>
-                                <td><?=$j['silabus'];?>
+                                <td><?=$this->db->get_where('subject',array('subject_id' => $j['section']))->row()->name;?></td>
+                                <td><?=$this->db->get_where('class',array('class_id' => $j['class']))->row()->name;?></td>
+                                <td><?=$j['file'];?>
                                 <!-- <a href="<?=site_url('teacher/journal_view/'.$j['subject_id']);?>" class="btn btn-primary">
                                     <i class="entypo-plus-circled"></i>
                                     <?php echo get_phrase('view_journal');?>
@@ -207,22 +201,20 @@
                             <tr>
                                 <th width="40"><div><?php echo get_phrase('#');?></div></th>
                                 <th><div><?php echo get_phrase('subject');?></div></th>
-                                <th><div><?php echo get_phrase('class');?></div></th>
-                                <th><div><?php echo get_phrase('section');?></div></th>
+                                <th><div><?php echo get_phrase('class');?></div></th>                                
                                 <th><div><?php echo get_phrase('file');?></div></th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php 
                             $no = 1;
-                            foreach ($teaching_planning as $j):
+                            foreach ($rpp as $j):
                             ?>
                             <tr>
                                 <td><?=$no++;?></td>
-                                <td><?=$this->db->get_where('subject',array('subject_id' => $j['subject_id']))->row()->name;?></td>
-                                <td><?=$this->db->get_where('class',array('class_id' => $j['class_id']))->row()->name;?></td>
-                                <td><?=$this->db->get_where('section',array('section_id' => $j['section_id']))->row()->name;?></td>
-                                <td><?=$j['rpp'];?>
+                                <td><?=$this->db->get_where('subject',array('subject_id' => $j['section']))->row()->name;?></td>
+                                <td><?=$this->db->get_where('class',array('class_id' => $j['class']))->row()->name;?></td>
+                                <td><?=$j['file'];?>
                                 <!-- <a href="<?=site_url('teacher/journal_view/'.$j['subject_id']);?>" class="btn btn-primary">
                                     <i class="entypo-plus-circled"></i>
                                     <?php echo get_phrase('view_journal');?>
@@ -242,22 +234,20 @@
                             <tr>
                                 <th width="40"><div><?php echo get_phrase('#');?></div></th>
                                 <th><div><?php echo get_phrase('subject');?></div></th>
-                                <th><div><?php echo get_phrase('class');?></div></th>
-                                <th><div><?php echo get_phrase('section');?></div></th>
+                                <th><div><?php echo get_phrase('class');?></div></th>                                
                                 <th><div><?php echo get_phrase('file');?></div></th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php 
                             $no = 1;
-                            foreach ($teaching_planning as $j):
+                            foreach ($kikd as $j):
                             ?>
                             <tr>
                                 <td><?=$no++;?></td>
-                                <td><?=$this->db->get_where('subject',array('subject_id' => $j['subject_id']))->row()->name;?></td>
-                                <td><?=$this->db->get_where('class',array('class_id' => $j['class_id']))->row()->name;?></td>
-                                <td><?=$this->db->get_where('section',array('section_id' => $j['section_id']))->row()->name;?></td>
-                                <td><?=$j['kikd'];?>
+                                <td><?=$this->db->get_where('subject',array('subject_id' => $j['section']))->row()->name;?></td>
+                                <td><?=$this->db->get_where('class',array('class_id' => $j['class']))->row()->name;?></td>
+                                <td><?=$j['file'];?>
                                 <a href="" class="btn btn-primary">
                                     <i class="entypo-plus-circled"></i>
                                     <?php echo get_phrase('view_journal');?>

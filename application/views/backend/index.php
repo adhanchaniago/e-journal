@@ -19,12 +19,11 @@
 	<meta name="description" content="Al-mazaya School Manager Pro - Creativeitem" />
 	<meta name="author" content="Creativeitem" />
 
-
-
 	<?php include 'includes_top.php';?>
 
 </head>
 <body class="page-body <?php if ($skin_colour != '') echo 'skin-' . $skin_colour;?>" >
+
 	<div class="page-container <?php if ($text_align == 'right-to-left') echo 'right-sidebar';?>
 		<?php if($page_name == 'attendance_report_view') echo 'sidebar-collapsed';?>" >
 		<?php include $account_type.'/navigation.php';?>
